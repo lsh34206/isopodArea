@@ -14,7 +14,7 @@ export class SessionIoAdapter extends IoAdapter {
         const server = super.createIOServer(port, {
             ...options,
             cors: {
-                origin: ['http://localhost:5173'],
+                origin: [process.env.FRONTEND_URL],
                 credentials: true,
             },
         });

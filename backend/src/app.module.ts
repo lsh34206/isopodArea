@@ -22,6 +22,8 @@ import { careSheetSchema } from './care-sheet/schema/careSheet.schema';
 import { photoSchema } from './photo/schema/photo.schema';
 import { marketSchema } from './market/schema/market.schema';
 import { auctionSchema } from './auction/schema/auction.schema';
+import { config } from 'process';
+import { ConfigModule } from '@nestjs/config';
 
 // AppService(홈 통계 집계)가 여러 게시판 모델을 직접 조회하므로,
 // 각 모듈 내부에서만 쓰이던 스키마들을 AppModule 자신에게도 등록해 준다.
@@ -76,7 +78,9 @@ imports:[mongoModule,
   PhotoModule,
   MarketModule,
   CareSheetModule,
-  SearchModule]
+  SearchModule,
+ConfigModule.forRoot()
+]
 }
 )
 
